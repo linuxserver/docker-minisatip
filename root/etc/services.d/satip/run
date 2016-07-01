@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv sh
+cd /app/satip
+
+./minisatip -x 8875
