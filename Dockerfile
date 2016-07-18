@@ -17,8 +17,8 @@ RUN \
 	gcc \
 	openssl-dev \
 	make \
-	tar \
-	wget && \
+	tar && \
+
 
 # add runtime dependencies required in build stage.
  apk add --no-cache \
