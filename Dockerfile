@@ -1,5 +1,14 @@
 FROM lsiobase/alpine
 
+# package version
+ARG SATIP_VER="master"
+
+# environment settings
+ARG SATIP_SRC="/tmp"
+ARG SATIP_URL="https://github.com/catalinii/minisatip/archive"
+ARG SATIP_WWW="${SATIP_URL}/${SATIP_VER}.tar.gz"
+ENV SATIP_ROOT="/app/satip"
+
 # install build dependencies
 RUN \
  apk add --no-cache --virtual=build-dependencies \
@@ -11,36 +20,39 @@ RUN \
 	tar \
 	wget && \
 
-# add runtime dependencies
+# add runtime dependencies required in build stage.
  apk add --no-cache \
 	libdvbcsa-dev \
 	linux-headers && \
 
 # fetch satip source
- wget -O \
-	/tmp/satip.tar.gz https://github.com/catalinii/minisatip/archive/master.tar.gz && \
-	mkdir -p /app/satip && \
-	tar xvf /tmp/satip.tar.gz -C /app/satip --strip-components=1 && \
+ curl -o \
+ "${SATIP_SRC}/satip.tar.gz" -L \
+	"${SATIP_WWW}" && \
+
+# unpack source
+ mkdir -p \
+	"$SATIP_ROOT}" && \
+ tar xf "${SATIP_SRC}/satip.tar.gz" -C \
+	"$SATIP_ROOT}" --strip-components=1 && \
 
 # compile satip
- cd /app/satip && \
-	./configure && \
-	make && \
+ cd "$SATIP_ROOT}" && \
+ ./configure && \
+ make && \
 
  # uninstall build dependencies
  apk del --purge \
 	build-dependencies && \
 
 # clean up
- rm -rf /var/cache/apk/* /tmp/*
+ rm -rfv \
+	/tmp/*
 
-# add runtime dependencies
+# add remaining runtime dependencies
 RUN \
  apk add --no-cache \
-	openssl && \
-
-# clean up
- rm -rf /var/cache/apk/*
+	openssl
 
 # add local files
 COPY root/ /
