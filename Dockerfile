@@ -59,4 +59,3 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 8875 554 1900/udp
-
