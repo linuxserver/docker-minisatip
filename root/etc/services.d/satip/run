@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-cd "$SATIP_ROOT}"
+cd "${SATIP_ROOT}"
 
 ./minisatip -x 8875

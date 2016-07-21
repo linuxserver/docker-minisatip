@@ -32,12 +32,12 @@ RUN \
 
 # unpack source
  mkdir -p \
-	"$SATIP_ROOT}" && \
+	"${SATIP_ROOT}" && \
  tar xf "${SATIP_SRC}/satip.tar.gz" -C \
-	"$SATIP_ROOT}" --strip-components=1 && \
+	"${SATIP_ROOT}" --strip-components=1 && \
 
 # compile satip
- cd "$SATIP_ROOT}" && \
+ cd "${SATIP_ROOT}" && \
  ./configure && \
  make && \
 
