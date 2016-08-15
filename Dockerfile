@@ -1,15 +1,17 @@
 FROM lsiobase/alpine
 MAINTAINER sparklyballs
 
+# package version
+ARG SATIP_VER="master"
+
 # install build dependencies
 RUN \
  apk add --no-cache --virtual=build-dependencies \
-	curl \
 	g++ \
 	gcc \
+	git \
 	make \
-	openssl-dev \
-	tar && \
+	openssl-dev && \
 
 # install runtime packages
  apk add --no-cache \
@@ -18,18 +20,12 @@ RUN \
 	openssl && \
 
 # fetch satip source
- curl -o \
- /tmp/satip-src.tar.gz -L \
-	https://github.com/catalinii/minisatip/archive/master.tar.gz && \
-
-# unpack source
- mkdir -p \
+ git clone https://github.com/catalinii/minisatip \
 	/app/satip && \
- tar xf /tmp/satip-src.tar.gz -C \
-	/app/satip --strip-components=1 && \
 
 # compile satip
  cd /app/satip && \
+ git checkout "${SATIP_VER}" && \
  ./configure && \
  make && \
 
