@@ -62,4 +62,4 @@ You can then use your cards as DVB inputs in apps such as tvheadend.
 
 ## Versions
 
-+ **09.08.16:** Initial Release.
++ **15.08.16:** Initial Release.
