@@ -13,11 +13,13 @@ Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and
 ## Usage
 
 ```
-docker create --name=minisatip \
+docker create \
+--name=minisatip \
 -e PGID=<gid> -e PUID=<uid> \
 -e TZ=<timezone> \
 -p 8875:8875 -p 554:554 \
 -p 1900:1900/udp
+--device=/dev/dvb \
 linuxserver/satip
 ```
 
@@ -29,6 +31,7 @@ linuxserver/satip
 * `-v /config` -
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
+* `--device=/dev/dvb` - for passing through Tv-cards.
 * `-e TZ` for timezone information, eg Europe/London
 
 It is based on alpine with s6 overlay, for shell access whilst the container is running do `docker exec -it minisatip /bin/bash`.
@@ -45,8 +48,11 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 ```
 
 ## Setting up the application
-Pass some stuff through from cards on your system and whatnot.
+Best used in conjunction with [tvheadend](https://github.com/linuxserver/docker-tvheadend)
 
+There is no setup per se, other than adding your cards for passthrough. 
+
+You can then use your cards as DVB inputs in apps such as tvheadend.
 
 ## Info
 
