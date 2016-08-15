@@ -6,7 +6,7 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 * [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 
-# linuxserver/satip
+# linuxserver/minisatip
 
 Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.
 
@@ -20,7 +20,7 @@ docker create \
 -p 8875:8875 -p 554:554 \
 -p 1900:1900/udp
 --device=/dev/dvb \
-linuxserver/satip
+linuxserver/minisatip
 ```
 
 **Parameters**
