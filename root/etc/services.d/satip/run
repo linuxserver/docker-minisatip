@@ -1,5 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-cd "${SATIP_ROOT}"
+cd /app/satip
 
-./minisatip -x 8875
+exec \
+	./minisatip -x 8875
