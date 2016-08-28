@@ -7,8 +7,15 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 
 
 # linuxserver/minisatip
+[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minisatip.svg)][hub]
+[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minisatip.svg)][hub]
+[![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-minisatip)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-minisatip/)
+[hub]: https://hub.docker.com/r/linuxserver/minisatip/
 
 Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. [Minisatip](https://github.com/catalinii/minisatip)
+
+[![minisatip](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png)][minisaturl]
+[minisaturl]: https://github.com/catalinii/minisatip
 
 ## Usage
 
@@ -62,4 +69,5 @@ You can then use your cards as DVB inputs in apps such as tvheadend.
 
 ## Versions
 
++ **28.08.16:** Add badges to README.
 + **15.08.16:** Initial Release.
