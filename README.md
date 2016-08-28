@@ -14,6 +14,9 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 
 Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. [Minisatip](https://github.com/catalinii/minisatip)
 
+[![minisatip](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png)][minisaturl]
+[minisaturl]: https://github.com/catalinii/minisatip
+
 ## Usage
 
 ```
