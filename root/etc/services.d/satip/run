@@ -3,4 +3,4 @@
 cd /app/satip
 
 exec \
-	./minisatip -x 8875
+	./minisatip "${RUNCMD}" -f -x 8875
