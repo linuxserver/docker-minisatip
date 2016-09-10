@@ -24,6 +24,7 @@ docker create \
 --name=minisatip \
 -e PGID=<gid> -e PUID=<uid> \
 -e TZ=<timezone> \
+-e RUN_OPTS=<parameter> \
 -p 8875:8875 -p 554:554 \
 -p 1900:1900/udp
 --device=/dev/dvb \
@@ -38,6 +39,7 @@ linuxserver/minisatip
 * `-v /config` -
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
+* `-e RUN_OPTS` additional runtime paramters - see below for explanation
 * `--device=/dev/dvb` - for passing through Tv-cards.
 * `-e TZ` for timezone information, eg Europe/London
 
@@ -53,6 +55,11 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
   $ id <dockeruser>
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
+
+### Additional runtime parameters
+
+In some cases it might be necessary to start minisatip with additional paramters, for example to configure a unicable LNB. Add the paramters you need and restart the container. Be sure to have the right paramters set as adding the wrong once might lead to the container not starting correctly.
+For a list of minisatip paramters visit [this](https://github.com/catalinii/minisatip) page.
 
 ## Setting up the application
 Best used in conjunction with [tvheadend](https://github.com/linuxserver/docker-tvheadend)

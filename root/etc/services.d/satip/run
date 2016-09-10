@@ -3,4 +3,4 @@
 cd /app/satip
 
 exec \
-	./minisatip -x 8875
+	./minisatip "${RUN_OPTS}" -f -x 8875
