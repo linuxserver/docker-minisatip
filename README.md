@@ -1,18 +1,20 @@
-![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
+[linuxserverurl]: https://linuxserver.io
+[forumurl]: https://forum.linuxserver.io
+[ircurl]: https://www.linuxserver.io/index.php/irc/
+[podcasturl]: https://www.linuxserver.io/index.php/category/podcast/
 
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring easy user mapping and community support. Find us for support at:
-* [forum.linuxserver.io](https://forum.linuxserver.io)
-* [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`
-* [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
+[![linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)][linuxserverurl]
 
+The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
+* [forum.linuxserver.io][forumurl]
+* [IRC][ircurl] on freenode at `#linuxserver.io`
+* [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/minisatip
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minisatip.svg)][hub]
-[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minisatip.svg)][hub]
-[![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-minisatip)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-minisatip/)
+[![](https://images.microbadger.com/badges/image/linuxserver/minisatip.svg)](http://microbadger.com/images/linuxserver/minisatip "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minisatip.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minisatip.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-minisatip)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-minisatip/)
 [hub]: https://hub.docker.com/r/linuxserver/minisatip/
 
-Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. [Minisatip](https://github.com/catalinii/minisatip)
+[Minisatip][minisaturl] is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.
 
 [![minisatip](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png)][minisaturl]
 [minisaturl]: https://github.com/catalinii/minisatip
@@ -39,7 +41,7 @@ linuxserver/minisatip
 * `-v /config` -
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
-* `-e RUN_OPTS` additional runtime paramters - see below for explanation
+* `-e RUN_OPTS` additional runtime parameters - see below for explanation
 * `--device=/dev/dvb` - for passing through Tv-cards.
 * `-e TZ` for timezone information, eg Europe/London
 
@@ -58,8 +60,8 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 ### Additional runtime parameters
 
-In some cases it might be necessary to start minisatip with additional paramters, for example to configure a unicable LNB. Add the paramters you need and restart the container. Be sure to have the right paramters set as adding the wrong once might lead to the container not starting correctly.
-For a list of minisatip paramters visit [this](https://github.com/catalinii/minisatip) page.
+In some cases it might be necessary to start minisatip with additional parameters, for example to configure a unicable LNB. Add the parameters you need and restart the container. Be sure to have the right parameters set as adding the wrong once might lead to the container not starting correctly.
+For a list of minisatip parameters visit [minisatip][minisaturl] page.
 
 ## Setting up the application
 Best used in conjunction with [tvheadend](https://github.com/linuxserver/docker-tvheadend)
@@ -72,9 +74,8 @@ You can then use your cards as DVB inputs in apps such as tvheadend.
 
 * To monitor the logs of the container in realtime `docker logs -f minisatip`.
 
-
-
 ## Versions
 
++ **11.09.16:** Add layer badges to README.
 + **28.08.16:** Add badges to README.
 + **15.08.16:** Initial Release.
