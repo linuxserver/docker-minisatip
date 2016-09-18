@@ -11,13 +11,21 @@ RUN \
 	gcc \
 	git \
 	make \
-	openssl-dev && \
+	mercurial \
+	openssl-dev \
+	perl && \
 
 # install runtime packages
  apk add --no-cache \
 	libdvbcsa-dev \
 	linux-headers \
 	openssl && \
+
+# build dvb-apps
+ hg clone http://linuxtv.org/hg/dvb-apps /tmp/dvb-apps && \
+ cd /tmp/dvb-apps && \
+ make && \
+ make install && \
 
 # fetch satip source
  git clone https://github.com/catalinii/minisatip \
