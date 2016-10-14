@@ -11,7 +11,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/minisatip
-[![](https://images.microbadger.com/badges/image/linuxserver/minisatip.svg)](http://microbadger.com/images/linuxserver/minisatip "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minisatip.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minisatip.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-minisatip)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-minisatip/)
+[![](https://images.microbadger.com/badges/version/linuxserver/minisatip.svg)](https://microbadger.com/images/linuxserver/minisatip "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/minisatip.svg)](http://microbadger.com/images/linuxserver/minisatip "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minisatip.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minisatip.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-minisatip)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-minisatip/)
 [hub]: https://hub.docker.com/r/linuxserver/minisatip/
 
 [Minisatip][minisaturl] is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.
@@ -74,8 +74,17 @@ You can then use your cards as DVB inputs in apps such as tvheadend.
 
 * To monitor the logs of the container in realtime `docker logs -f minisatip`.
 
+* container version number 
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' minisatip`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/minisatip`
+
 ## Versions
 
++ **14-10-16:** Add version layer information.
 + **18.09.16:** Add support for Common Interface.
 + **11.09.16:** Add layer badges to README.
 + **28.08.16:** Add badges to README.
