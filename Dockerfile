@@ -1,4 +1,4 @@
-FROM lsiobase/alpine
+FROM lsiobase/alpine:3.5
 MAINTAINER sparklyballs
 
 # set version label
@@ -29,8 +29,8 @@ RUN \
 # build dvb-apps
  hg clone http://linuxtv.org/hg/dvb-apps /tmp/dvb-apps && \
  cd /tmp/dvb-apps && \
- make && \
- make install && \
+ make -C lib && \
+ make -C lib install && \
 
 # fetch satip source
  git clone https://github.com/catalinii/minisatip \
