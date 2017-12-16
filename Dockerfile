@@ -1,16 +1,16 @@
-FROM lsiobase/alpine:3.6
-MAINTAINER sparklyballs
+FROM lsiobase/alpine:3.7
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="sparklyballs"
 
 # package version
 ARG SATIP_VER="master"
 
-# install build dependencies
 RUN \
+ echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
 	g++ \
 	gcc \
@@ -19,34 +19,26 @@ RUN \
 	mercurial \
 	openssl-dev \
 	perl && \
-
-# install runtime packages
+ echo "**** install runtime packages ****" && \
  apk add --no-cache \
 	libdvbcsa-dev \
 	linux-headers \
 	openssl && \
-
-# build dvb-apps
+ echo "**** build dvb-apps ****" && \
  hg clone http://linuxtv.org/hg/dvb-apps /tmp/dvb-apps && \
  cd /tmp/dvb-apps && \
  make -C lib && \
  make -C lib install && \
-
-# fetch satip source
+ echo "***** compile satip ****" && \
  git clone https://github.com/catalinii/minisatip \
 	/app/satip && \
-
-# compile satip
  cd /app/satip && \
  git checkout "${SATIP_VER}" && \
  ./configure && \
  make && \
-
-# uninstall build dependencies
+ echo "**** clean up ****" && \
  apk del --purge \
 	build-dependencies && \
-
-# clean up
  rm -rf \
 	/tmp/*
 
