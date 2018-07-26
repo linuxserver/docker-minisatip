@@ -2,5 +2,7 @@
 
 cd /app/satip || exit
 
+IFS=" " read -r -a RUN_ARRAY <<< "$RUN_OPTS"
+
 exec \
-	./minisatip "${RUN_OPTS}" -f -x 8875
+        ./minisatip "${RUN_ARRAY[@]}" -f -x 8875
