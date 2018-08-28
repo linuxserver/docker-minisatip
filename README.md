@@ -90,6 +90,7 @@ You can then use your cards as DVB inputs in apps such as tvheadend.
 
 ## Versions
 
++ **28.08.18:** Rebase to Alpine 3.8.
 + **13.12.17:** Rebase to Alpine 3.7.
 + **28.05.17:** Rebase to Alpine 3.6.
 + **08.02.17:** Rebase to Alpine 3.5 and only compile libs in dvb-apps.
