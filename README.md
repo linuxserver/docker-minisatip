@@ -35,7 +35,7 @@ linuxserver/minisatip
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -72,7 +72,7 @@ For a list of minisatip parameters visit [minisatip][appurl] page.
 ## Setting up the application
 Best used in conjunction with [tvheadend](https://github.com/linuxserver/docker-tvheadend)
 
-There is no setup per se, other than adding your cards for passthrough. 
+There is no setup per se, other than adding your cards for passthrough.
 
 You can then use your cards as DVB inputs in apps such as tvheadend.
 
@@ -80,7 +80,7 @@ You can then use your cards as DVB inputs in apps such as tvheadend.
 
 * To monitor the logs of the container in realtime `docker logs -f minisatip`.
 
-* container version number 
+* container version number
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' minisatip`
 
