@@ -23,12 +23,12 @@ pipeline {
     DIST_IMAGE = 'alpine'
     MULTIARCH='true'
     CI='true'
-    CI_WEB='false'
-    CI_PORT=''
-    CI_SSL=''
-    CI_DELAY='5'
+    CI_WEB='true'
+    CI_PORT='8875'
+    CI_SSL='false'
+    CI_DELAY='120'
     CI_DOCKERENV='TZ=US/Pacific'
-    CI_AUTH=''
+    CI_AUTH='user:password'
     CI_WEBPATH=''
   }
   stages {
@@ -211,7 +211,7 @@ pipeline {
               fi
               mkdir -p ${TEMPDIR}/gitbook
               git clone https://github.com/linuxserver/docker-documentation.git ${TEMPDIR}/gitbook/docker-documentation
-              if [ ! -f ${TEMPDIR}/gitbook/docker-documentation/images/docker-${CONTAINER_NAME}.md ] || [ "$(md5sum ${TEMPDIR}/gitbook/docker-documentation/images/docker-${CONTAINER_NAME}.md | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/${CONTAINER_NAME}/docker-${CONTAINER_NAME}.md | awk '{ print $1 }')" ]; then
+              if [ "${BRANCH_NAME}" = "master" ] && [ ! -f ${TEMPDIR}/gitbook/docker-documentation/images/docker-${CONTAINER_NAME}.md ] || [ "$(md5sum ${TEMPDIR}/gitbook/docker-documentation/images/docker-${CONTAINER_NAME}.md | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/${CONTAINER_NAME}/docker-${CONTAINER_NAME}.md | awk '{ print $1 }')" ]; then
                 cp ${TEMPDIR}/${CONTAINER_NAME}/docker-${CONTAINER_NAME}.md ${TEMPDIR}/gitbook/docker-documentation/images/
                 cd ${TEMPDIR}/gitbook/docker-documentation/
                 git add images/docker-${CONTAINER_NAME}.md
