@@ -73,6 +73,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "20.02.19:", desc: "Fix run options." }
   - { date: "11.02.19:", desc: "Add pipeline logic and multi arch." }
   - { date: "28.08.18:", desc: "Rebase to Alpine 3.8." }
   - { date: "13.12.17:", desc: "Rebase to Alpine 3.7." }

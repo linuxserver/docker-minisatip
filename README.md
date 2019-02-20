@@ -175,6 +175,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **20.02.19:** - Fix run options.
 * **11.02.19:** - Add pipeline logic and multi arch.
 * **28.08.18:** - Rebase to Alpine 3.8.
 * **13.12.17:** - Rebase to Alpine 3.7.
