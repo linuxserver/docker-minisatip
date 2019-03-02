@@ -51,8 +51,8 @@ Here are some example snippets to help you get started creating a container.
 ```
 docker create \
   --name=minisatip \
-  -e PUID=1001 \
-  -e PGID=1001 \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -e TZ=Europe/London \
   -e RUN_OPTS=<parameter> \
   -p 8875:8875 \
@@ -82,8 +82,8 @@ services:
     image: linuxserver/minisatip
     container_name: minisatip
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/London
       - RUN_OPTS=<parameter>
     volumes:
@@ -94,7 +94,6 @@ services:
       - 1900:1900/udp
     devices:
       - /dev/dvb:/dev/dvb
-    mem_limit: 4096m
     restart: unless-stopped
 ```
 
@@ -107,8 +106,8 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8875` | Status Page WebUI |
 | `-p 554` | RTSP Port |
 | `-p 1900/udp` | App Discovery |
-| `-e PUID=1001` | for UserID - see below for explanation |
-| `-e PGID=1001` | for GroupID - see below for explanation |
+| `-e PUID=1000` | for UserID - see below for explanation |
+| `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
 | `-e RUN_OPTS=<parameter>` | Specify specific run params for minisatip |
 | `-v /config` | Configuration files and minisatip data |
@@ -120,11 +119,11 @@ When using volumes (`-v` flags) permissions issues can arise between the host OS
 
 Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
 
-In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as below:
+In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as below:
 
 ```
   $ id username
-    uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+    uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
 
@@ -162,9 +161,20 @@ Below are the instructions for updating containers:
 * Start the new container: `docker start minisatip`
 * You can also remove the old dangling images: `docker image prune`
 
+### Via Taisun auto-updater (especially useful if you don't remember the original parameters)
+* Pull the latest image at its tag and replace it with the same env variables in one shot:
+  ```
+  docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock taisun/updater \
+  --oneshot minisatip
+  ```
+* You can also remove the old dangling images: `docker image prune`
+
 ### Via Docker Compose
-* Update the image: `docker-compose pull linuxserver/minisatip`
-* Let compose update containers as necessary: `docker-compose up -d`
+* Update all images: `docker-compose pull`
+  * or update a single image: `docker-compose pull minisatip`
+* Let compose update all containers as necessary: `docker-compose up -d`
+  * or update a single container: `docker-compose up -d minisatip`
 * You can also remove the old dangling images: `docker image prune`
 
 ## Versions
