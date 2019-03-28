@@ -14,7 +14,7 @@ libcrypto1.1-1.1.1b-r1
 libcurl-7.64.0-r1
 libdvbcsa-1.1.0-r1
 libdvbcsa-dev-1.1.0-r1
-libssh2-1.8.1-r0
+libssh2-1.8.2-r0
 libssl1.1-1.1.1b-r1
 libtls-standalone-2.7.4-r6
 linux-headers-4.18.13-r1
