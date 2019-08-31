@@ -1,5 +1,12 @@
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
 
+[![Blog](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Blog)](https://blog.linuxserver.io "all the things you can do with our containers including How-To guides, opinions and much more!")
+[![Discord](https://img.shields.io/discord/354974912613449730.svg?style=flat-square&color=E68523&label=Discord&logo=discord&logoColor=FFFFFF)](https://discord.gg/YWrKVTn "realtime support / chat with the community and the team.")
+[![Discourse](https://img.shields.io/discourse/https/discourse.linuxserver.io/topics.svg?style=flat-square&color=E68523&logo=discourse&logoColor=FFFFFF)](https://discourse.linuxserver.io "post on our community forum.")
+[![Fleet](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Fleet)](https://fleet.linuxserver.io "an online web interface which displays all of our maintained images.")
+[![Podcast](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Podcast)](https://anchor.fm/linuxserverio "on hiatus. Coming back soon (late 2018).")
+[![Open Collective](https://img.shields.io/opencollective/all/linuxserver.svg?style=flat-square&color=E68523&label=Open%20Collective%20Supporters)](https://opencollective.com/linuxserver "please consider helping us by either donating or contributing to our budget")
+
 The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring :-
 
  * regular and timely application updates
@@ -9,17 +16,20 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
  * regular security updates
 
 Find us at:
-* [Discord](https://discord.gg/YWrKVTn) - realtime support / chat with the community and the team.
-* [IRC](https://irc.linuxserver.io) - on freenode at `#linuxserver.io`. Our primary support channel is Discord.
 * [Blog](https://blog.linuxserver.io) - all the things you can do with our containers including How-To guides, opinions and much more!
+* [Discord](https://discord.gg/YWrKVTn) - realtime support / chat with the community and the team.
+* [Discourse](https://discourse.linuxserver.io) - post on our community forum.
+* [Fleet](https://fleet.linuxserver.io) - an online web interface which displays all of our maintained images.
+* [Podcast](https://anchor.fm/linuxserverio) - on hiatus. Coming back soon (late 2018).
+* [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget
 
 # [linuxserver/minisatip](https://github.com/linuxserver/docker-minisatip)
-[![](https://img.shields.io/discord/354974912613449730.svg?logo=discord&label=LSIO%20Discord&style=flat-square)](https://discord.gg/YWrKVTn)
-[![](https://images.microbadger.com/badges/version/linuxserver/minisatip.svg)](https://microbadger.com/images/linuxserver/minisatip "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/linuxserver/minisatip.svg)](https://microbadger.com/images/linuxserver/minisatip "Get your own version badge on microbadger.com")
-![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minisatip.svg)
-![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minisatip.svg)
-[![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Pipeline-Builders/docker-minisatip/master)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-minisatip/job/master/)
+[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-minisatip.svg?style=flat-square&color=E68523)](https://github.com/linuxserver/docker-minisatip/releases)
+[![MicroBadger Layers](https://img.shields.io/microbadger/layers/linuxserver/minisatip.svg?style=flat-square&color=E68523)](https://microbadger.com/images/linuxserver/minisatip "Get your own version badge on microbadger.com")
+[![MicroBadger Size](https://img.shields.io/microbadger/image-size/linuxserver/minisatip.svg?style=flat-square&color=E68523)](https://microbadger.com/images/linuxserver/minisatip "Get your own version badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/minisatip.svg?style=flat-square&color=E68523)](https://hub.docker.com/r/linuxserver/minisatip/minisatip)
+[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/minisatip.svg?style=flat-square&color=E68523)](https://hub.docker.com/r/linuxserver/minisatip/minisatip)
+[![Build Status](https://ci.linuxserver.io/view/all/job/Docker-Pipeline-Builders/job/docker-minisatip/job/master/badge/icon?style=flat-square)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-minisatip/job/master/)
 [![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/minisatip/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/minisatip/latest/index.html)
 
 [Minisatip](https://github.com/catalinii/minisatip) is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.
@@ -28,7 +38,7 @@ Find us at:
 
 ## Supported Architectures
 
-Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/). 
+Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
 
 Simply pulling `linuxserver/minisatip` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
@@ -141,17 +151,17 @@ You can then use your cards as DVB inputs in apps such as tvheadend.
 
 * Shell access whilst the container is running: `docker exec -it minisatip /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f minisatip`
-* container version number 
+* container version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' minisatip`
 * image version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/minisatip`
 
 ## Updating Info
 
-Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.  
-  
-Below are the instructions for updating containers:  
-  
+Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.
+
+Below are the instructions for updating containers:
+
 ### Via Docker Run/Create
 * Update the image: `docker pull linuxserver/minisatip`
 * Stop the running container: `docker stop minisatip`
@@ -182,7 +192,7 @@ Below are the instructions for updating containers:
 
 ## Building locally
 
-If you want to make local modifications to these images for development purposes or just to customize the logic: 
+If you want to make local modifications to these images for development purposes or just to customize the logic:
 ```
 git clone https://github.com/linuxserver/docker-minisatip.git
 cd docker-minisatip
