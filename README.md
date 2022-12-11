@@ -83,9 +83,9 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - RUN_OPTS=<parameter>
+      - RUN_OPTS=
     volumes:
-      - </path/to/appdata/config>:/config
+      - /path/to/appdata/config:/config
     ports:
       - 8875:8875
       - 554:554
@@ -103,11 +103,11 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/London \
-  -e RUN_OPTS=<parameter> \
+  -e RUN_OPTS= \
   -p 8875:8875 \
   -p 554:554 \
   -p 1900:1900/udp \
-  -v </path/to/appdata/config>:/config \
+  -v /path/to/appdata/config:/config \
   --device /dev/dvb:/dev/dvb \
   --restart unless-stopped \
   lscr.io/linuxserver/minisatip:latest
@@ -130,7 +130,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
-| `-e RUN_OPTS=<parameter>` | Specify specific run params for minisatip |
+| `-e RUN_OPTS=` | Specify specific run params for minisatip |
 | `-v /config` | Configuration files and minisatip data |
 | `--device /dev/dvb` | For passing through Tv-cards |
 
@@ -243,6 +243,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **12.11.22:** - Rebasing to alpine 3.137, upgrading to s6v3.
 * **23.01.21:** - Rebasing to alpine 3.13.
 * **01.06.20:** - Rebasing to alpine 3.12.
 * **19.12.19:** - Rebasing to alpine 3.11.

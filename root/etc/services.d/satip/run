@@ -1,6 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-cd /app/satip || exit
-
-exec \
-	./minisatip ${RUN_OPTS} -f -x 8875
