@@ -24,10 +24,10 @@ param_usage_include_net: false
 param_usage_include_env: true
 param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
-  - { env_var: "RUN_OPTS", env_value: "<parameter>", desc: "Specify specific run params for minisatip" }
+  - { env_var: "RUN_OPTS", env_value: "", desc: "Specify specific run params for minisatip" }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "</path/to/appdata/config>", desc: "Configuration files and minisatip data" }
+  - { vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files and minisatip data" }
 param_usage_include_ports: true
 param_ports:
   - { external_port: "8875", internal_port: "8875", port_desc: "Status Page WebUI" }
@@ -44,7 +44,7 @@ opt_param_env_vars:
   - { env_var: "VERSION", env_value: "latest", desc: "Supported values are LATEST, PLEXPASS or a specific version number." }
 opt_param_usage_include_vols: false
 opt_param_volumes:
-  - { vol_path: "/config", vol_host_path: "</path/to/appdata/config>", desc: "Configuration files." }
+  - { vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files." }
 opt_param_usage_include_ports: false
 opt_param_ports:
   - { external_port: "80", internal_port: "80", port_desc: "Application WebUI" }
@@ -73,6 +73,7 @@ app_setup_block: |
 # changelog
 
 changelogs:
+  - { date: "12.11.22:", desc: "Rebasing to alpine 3.137, upgrading to s6v3." }
   - { date: "23.01.21:", desc: "Rebasing to alpine 3.13." }
   - { date: "01.06.20:", desc: "Rebasing to alpine 3.12." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
