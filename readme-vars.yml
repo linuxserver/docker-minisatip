@@ -7,52 +7,46 @@ project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/ma
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
-
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
-  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-  - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
-
+  - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 # development version
 development_versions: false
-
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 param_usage_include_net: false
 param_usage_include_env: true
 param_env_vars:
-  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
-  - { env_var: "RUN_OPTS", env_value: "", desc: "Specify specific run params for minisatip" }
+  - {env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London."}
+  - {env_var: "RUN_OPTS", env_value: "", desc: "Specify specific run params for minisatip"}
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files and minisatip data" }
+  - {vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files and minisatip data"}
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "8875", internal_port: "8875", port_desc: "Status Page WebUI" }
-  - { external_port: "554", internal_port: "554", port_desc: "RTSP Port" }
-  - { external_port: "1900", internal_port: "1900/udp", port_desc: "App Discovery" }
+  - {external_port: "8875", internal_port: "8875", port_desc: "Status Page WebUI"}
+  - {external_port: "554", internal_port: "554", port_desc: "RTSP Port"}
+  - {external_port: "1900", internal_port: "1900/udp", port_desc: "App Discovery"}
 param_device_map: true
 param_devices:
-  - { device_path: "/dev/dvb", device_host_path: "/dev/dvb", desc: "For passing through Tv-cards" }
+  - {device_path: "/dev/dvb", device_host_path: "/dev/dvb", desc: "For passing through Tv-cards"}
 cap_add_param: false
-
 # optional container parameters
 opt_param_usage_include_env: false
 opt_param_env_vars:
-  - { env_var: "VERSION", env_value: "latest", desc: "Supported values are LATEST, PLEXPASS or a specific version number." }
+  - {env_var: "VERSION", env_value: "latest", desc: "Supported values are LATEST, PLEXPASS or a specific version number."}
 opt_param_usage_include_vols: false
 opt_param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files." }
+  - {vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files."}
 opt_param_usage_include_ports: false
 opt_param_ports:
-  - { external_port: "80", internal_port: "80", port_desc: "Application WebUI" }
+  - {external_port: "80", internal_port: "80", port_desc: "Application WebUI"}
 opt_param_device_map: false
 opt_param_devices:
-  - { device_path: "/dev/dri", device_host_path: "/dev/dri", desc: "For hardware transcoding" }
+  - {device_path: "/dev/dri", device_host_path: "/dev/dri", desc: "For hardware transcoding"}
 opt_cap_add_param: false
-
 optional_block_1: true
 optional_block_1_items:
   - |
@@ -60,7 +54,6 @@ optional_block_1_items:
 
     In some cases it might be necessary to start minisatip with additional parameters, for example to configure a unicable LNB. Add the parameters you need and restart the container. Be sure to have the right parameters set as adding the wrong once might lead to the container not starting correctly.
     For a list of minisatip parameters visit [{{ project_name|capitalize }}]({{ project_url }}) page.
-
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -69,25 +62,24 @@ app_setup_block: |
   There is no setup per se, other than adding your cards for passthrough.
 
   You can then use your cards as DVB inputs in apps such as tvheadend.
-
 # changelog
-
 changelogs:
-  - { date: "12.11.22:", desc: "Rebasing to alpine 3.137, upgrading to s6v3." }
-  - { date: "23.01.21:", desc: "Rebasing to alpine 3.13." }
-  - { date: "01.06.20:", desc: "Rebasing to alpine 3.12." }
-  - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
-  - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
-  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
-  - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
-  - { date: "20.02.19:", desc: "Fix run options." }
-  - { date: "11.02.19:", desc: "Add pipeline logic and multi arch." }
-  - { date: "28.08.18:", desc: "Rebase to Alpine 3.8." }
-  - { date: "13.12.17:", desc: "Rebase to Alpine 3.7." }
-  - { date: "28.05.17:", desc: "Rebase to Alpine 3.6." }
-  - { date: "08.02.17:", desc: "Rebase to Alpine 3.5 and only compile libs in dvb-apps." }
-  - { date: "14.10.16:", desc: "Add version layer information." }
-  - { date: "18.09.16:", desc: "Add support for Common Interface." }
-  - { date: "11.09.16:", desc: "Add layer badges to README." }
-  - { date: "28.08.16:", desc: "Add badges to README." }
-  - { date: "15.08.16:", desc: "Initial Release." }
+  - {date: "03.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
+  - {date: "12.11.22:", desc: "Rebasing to alpine 3.137, upgrading to s6v3."}
+  - {date: "23.01.21:", desc: "Rebasing to alpine 3.13."}
+  - {date: "01.06.20:", desc: "Rebasing to alpine 3.12."}
+  - {date: "19.12.19:", desc: "Rebasing to alpine 3.11."}
+  - {date: "28.06.19:", desc: "Rebasing to alpine 3.10."}
+  - {date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag."}
+  - {date: "22.02.19:", desc: "Rebasing to alpine 3.9."}
+  - {date: "20.02.19:", desc: "Fix run options."}
+  - {date: "11.02.19:", desc: "Add pipeline logic and multi arch."}
+  - {date: "28.08.18:", desc: "Rebase to Alpine 3.8."}
+  - {date: "13.12.17:", desc: "Rebase to Alpine 3.7."}
+  - {date: "28.05.17:", desc: "Rebase to Alpine 3.6."}
+  - {date: "08.02.17:", desc: "Rebase to Alpine 3.5 and only compile libs in dvb-apps."}
+  - {date: "14.10.16:", desc: "Add version layer information."}
+  - {date: "18.09.16:", desc: "Add support for Common Interface."}
+  - {date: "11.09.16:", desc: "Add layer badges to README."}
+  - {date: "28.08.16:", desc: "Add badges to README."}
+  - {date: "15.08.16:", desc: "Initial Release."}
