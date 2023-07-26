@@ -64,6 +64,7 @@ app_setup_block: |
   You can then use your cards as DVB inputs in apps such as tvheadend.
 # changelog
 changelogs:
+  - {date: "26.07.23:", desc: "Build with DDCI=1 for Digital Devices CI support."}
   - {date: "03.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
   - {date: "12.11.22:", desc: "Rebasing to alpine 3.137, upgrading to s6v3."}
   - {date: "23.01.21:", desc: "Rebasing to alpine 3.13."}

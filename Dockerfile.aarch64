@@ -43,7 +43,7 @@ RUN \
     /app/satip --strip-components=1 && \
   cd /app/satip && \
   ./configure && \
-  make && \
+  make DDCI=1 && \
   echo "**** clean up ****" && \
   apk del --purge \
     build-dependencies && \
