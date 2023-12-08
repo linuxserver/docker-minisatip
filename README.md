@@ -310,6 +310,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **08.12.23:** - Rebase to Alpine 3.19, switch to building from releases rather than commits.
 * **26.07.23:** - Build with DDCI=1 for Digital Devices CI support.
 * **03.07.23:** - Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
 * **12.11.22:** - Rebasing to alpine 3.137, upgrading to s6v3.
