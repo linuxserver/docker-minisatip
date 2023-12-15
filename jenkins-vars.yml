@@ -2,7 +2,7 @@
 
 # jenkins variables
 project_name: docker-minisatip
-external_type: github_commit
+external_type: github_stable
 release_type: stable
 release_tag: latest
 ls_branch: master
@@ -10,7 +10,7 @@ repo_vars:
   - EXT_GIT_BRANCH = 'master'
   - EXT_USER = 'catalinii'
   - EXT_REPO = 'minisatip'
-  - BUILD_VERSION_ARG = 'MINISATIP_COMMIT'
+  - BUILD_VERSION_ARG = 'MINISATIP_VERSION'
   - LS_USER = 'linuxserver'
   - LS_REPO = 'docker-minisatip'
   - CONTAINER_NAME = 'minisatip'

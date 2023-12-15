@@ -1,19 +1,19 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.17
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/baseimage-alpine:3.19
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-ARG MINISATIP_COMMIT
+ARG MINISATIP_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="sparklyballs"
 
 RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
-    g++ \
-    gcc \
+    build-base \
     git \
-    make \
     mercurial \
     openssl-dev \
     perl && \
@@ -29,15 +29,15 @@ RUN \
   make -C lib && \
   make -C lib install && \
   echo "***** compile satip ****" && \
-  if [ -z ${MINISATIP_COMMIT+x} ]; then \
-    MINISATIP_COMMIT=$(curl -sX GET https://api.github.com/repos/catalinii/minisatip/commits/master \
-      | awk '/sha/{print $4;exit}' FS='[""]'); \
+  if [ -z ${MINISATIP_VERSION+x} ]; then \
+    MINISATIP_VERSION=$(curl -sX GET https://api.github.com/repos/catalinii/minisatip/releases/latest \
+    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   mkdir -p \
     /app/satip && \
   curl -o \
     /tmp/satip.tar.gz -L \
-    "https://github.com/catalinii/minisatip/archive/${MINISATIP_COMMIT}.tar.gz" && \
+    "https://github.com/catalinii/minisatip/archive/${MINISATIP_VERSION}.tar.gz" && \
   tar xf \
     /tmp/satip.tar.gz -C \
     /app/satip --strip-components=1 && \
