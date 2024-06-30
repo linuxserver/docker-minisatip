@@ -10,8 +10,6 @@ project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
   - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-# development version
-development_versions: false
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
@@ -20,7 +18,7 @@ param_env_vars:
   - {env_var: "RUN_OPTS", env_value: "", desc: "Specify specific run params for minisatip"}
 param_usage_include_vols: true
 param_volumes:
-  - {vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files and minisatip data"}
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Configuration files and minisatip data"}
 param_usage_include_ports: true
 param_ports:
   - {external_port: "8875", internal_port: "8875", port_desc: "Status Page WebUI"}
@@ -46,6 +44,7 @@ app_setup_block: |
   You can then use your cards as DVB inputs in apps such as tvheadend.
 # changelog
 changelogs:
+  - {date: "30.06.24:", desc: "Rebase to Alpine 3.20."}
   - {date: "08.12.23:", desc: "Rebase to Alpine 3.19, switch to building from releases rather than commits."}
   - {date: "26.07.23:", desc: "Build with DDCI=1 for Digital Devices CI support."}
   - {date: "03.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
