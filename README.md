@@ -83,7 +83,7 @@ services:
       - TZ=Etc/UTC
       - RUN_OPTS=
     volumes:
-      - /path/to/appdata/config:/config
+      - /path/to/minisatip/config:/config
     ports:
       - 8875:8875
       - 554:554
@@ -105,7 +105,7 @@ docker run -d \
   -p 8875:8875 \
   -p 554:554 \
   -p 1900:1900/udp \
-  -v /path/to/appdata/config:/config \
+  -v /path/to/minisatip/config:/config \
   --device /dev/dvb:/dev/dvb \
   --restart unless-stopped \
   lscr.io/linuxserver/minisatip:latest
@@ -294,6 +294,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **30.06.24:** - Rebase to Alpine 3.20.
 * **08.12.23:** - Rebase to Alpine 3.19, switch to building from releases rather than commits.
 * **26.07.23:** - Build with DDCI=1 for Digital Devices CI support.
 * **03.07.23:** - Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
