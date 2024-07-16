@@ -24,7 +24,7 @@ RUN \
     openssl \
   curl && \
   echo "**** build dvb-apps ****" && \
-  hg clone http://linuxtv.org/hg/dvb-apps /tmp/dvb-apps && \
+  hg clone http://linuxtv.org/legacy-hg/dvb-apps /tmp/dvb-apps && \
   cd /tmp/dvb-apps && \
   make -C lib && \
   make -C lib install && \
