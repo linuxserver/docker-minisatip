@@ -88,6 +88,7 @@ init_diagram: |
   "minisatip:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "21.05.25:", desc: "Rebase to Ubuntu Noble as the new upstream version requires glibc."}
   - {date: "30.06.24:", desc: "Rebase to Alpine 3.20."}
   - {date: "08.12.23:", desc: "Rebase to Alpine 3.19, switch to building from releases rather than commits."}
   - {date: "26.07.23:", desc: "Build with DDCI=1 for Digital Devices CI support."}

@@ -298,6 +298,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **21.05.25:** - Rebase to Ubuntu Noble as the new upstream version requires glibc.
 * **30.06.24:** - Rebase to Alpine 3.20.
 * **08.12.23:** - Rebase to Alpine 3.19, switch to building from releases rather than commits.
 * **26.07.23:** - Build with DDCI=1 for Digital Devices CI support.

@@ -29,7 +29,7 @@ pipeline {
     DOCKERHUB_IMAGE = 'linuxserver/minisatip'
     DEV_DOCKERHUB_IMAGE = 'lsiodev/minisatip'
     PR_DOCKERHUB_IMAGE = 'lspipepr/minisatip'
-    DIST_IMAGE = 'alpine'
+    DIST_IMAGE = 'ubuntu'
     MULTIARCH='true'
     CI='true'
     CI_WEB='true'
