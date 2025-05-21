@@ -1,28 +1,31 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.20
+FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 ARG MINISATIP_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="sparklyballs"
+LABEL maintainer="notdriz"
+
+ENV \
+  DEBIAN_FRONTEND="noninteractive" \
+  MAKEFLAGS="-j4" \
+  ATTACHED_DEVICES_PERMS="/dev/dvb -type c"
 
 RUN \
-  echo "**** install build packages ****" && \
-  apk add --no-cache --virtual=build-dependencies \
-    build-base \
+  echo "**** install packages ****" && \
+  apt-get update && \
+  apt-get install --no-install-recommends -y \
+    build-essential \
     git \
-    mercurial \
-    openssl-dev \
-    perl && \
-  echo "**** install runtime packages ****" && \
-  apk add --no-cache \
     libdvbcsa-dev \
-    linux-headers \
+    libssl-dev \
+    linux-headers-generic \
+    mercurial \
     openssl \
-  curl && \
+    perl && \
   echo "**** build dvb-apps ****" && \
   hg clone http://linuxtv.org/legacy-hg/dvb-apps /tmp/dvb-apps && \
   cd /tmp/dvb-apps && \
@@ -46,10 +49,19 @@ RUN \
   make DDCI=1 && \
   printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** clean up ****" && \
-  apk del --purge \
-    build-dependencies && \
+  apt-get -y purge \
+    build-essential \
+    git \
+    libssl-dev \
+    linux-headers-generic \
+    mercurial \
+    perl && \
+  apt-get -y autoremove && \
   rm -rf \
-    /tmp/*
+    /tmp/* \
+    /var/lib/apt/lists/* \
+    /var/tmp/* \
+    /root/.cache
 
 # add local files
 COPY root/ /
