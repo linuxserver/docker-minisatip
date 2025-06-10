@@ -23,14 +23,8 @@ RUN \
     libdvbcsa-dev \
     libssl-dev \
     linux-headers-generic \
-    mercurial \
     openssl \
     perl && \
-  echo "**** build dvb-apps ****" && \
-  hg clone http://linuxtv.org/legacy-hg/dvb-apps /tmp/dvb-apps && \
-  cd /tmp/dvb-apps && \
-  make -C lib && \
-  make -C lib install && \
   echo "***** compile satip ****" && \
   if [ -z ${MINISATIP_VERSION+x} ]; then \
     MINISATIP_VERSION=$(curl -sX GET https://api.github.com/repos/catalinii/minisatip/releases/latest \
@@ -54,7 +48,6 @@ RUN \
     git \
     libssl-dev \
     linux-headers-generic \
-    mercurial \
     perl && \
   apt-get -y autoremove && \
   rm -rf \
