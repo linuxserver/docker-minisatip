@@ -15,39 +15,41 @@ ENV \
   ATTACHED_DEVICES_PERMS="/dev/dvb -type c"
 
 RUN \
-  echo "**** install packages ****" && \
+  echo "**** install build packages ****" && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
     build-essential \
+    cmake \
     git \
-    libdvbcsa-dev \
     libssl-dev \
-    linux-headers-generic \
-    openssl \
     perl && \
+  echo "**** install runtime packages ****" && \
+  apt-get install --no-install-recommends -y \
+    libdvbcsa-dev \
+    openssl && \
   echo "***** compile satip ****" && \
   if [ -z ${MINISATIP_VERSION+x} ]; then \
     MINISATIP_VERSION=$(curl -sX GET https://api.github.com/repos/catalinii/minisatip/releases/latest \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
+  git clone \
+    --branch ${MINISATIP_VERSION} \
+    --depth 1 https://github.com/catalinii/minisatip.git \
+    /tmp/satip && \
   mkdir -p \
-    /app/satip && \
-  curl -o \
-    /tmp/satip.tar.gz -L \
-    "https://github.com/catalinii/minisatip/archive/${MINISATIP_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/satip.tar.gz -C \
-    /app/satip --strip-components=1 && \
-  cd /app/satip && \
-  ./configure && \
+    /app/satip \
+    /tmp/satip/build && \
+  cd /tmp/satip/build && \
+  cmake ../ && \
   make DDCI=1 && \
+  mv minisatip ../html /app/satip/ && \
   printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** clean up ****" && \
   apt-get -y purge \
     build-essential \
+    cmake \
     git \
     libssl-dev \
-    linux-headers-generic \
     perl && \
   apt-get -y autoremove && \
   rm -rf \

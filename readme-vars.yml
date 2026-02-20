@@ -84,6 +84,7 @@ init_diagram: |
   "minisatip:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "20.02.26:", desc: "Build with cmake. Clean up source files."}
   - {date: "10.06.25:", desc: "Remove dvb-apps as upstream repo no longer exists."}
   - {date: "21.05.25:", desc: "Rebase to Ubuntu Noble as the new upstream version requires glibc."}
   - {date: "30.06.24:", desc: "Rebase to Alpine 3.20."}
