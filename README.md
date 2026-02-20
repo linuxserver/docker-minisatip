@@ -295,6 +295,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.02.26:** - Build with cmake. Clean up source files.
 * **10.06.25:** - Remove dvb-apps as upstream repo no longer exists.
 * **21.05.25:** - Rebase to Ubuntu Noble as the new upstream version requires glibc.
 * **30.06.24:** - Rebase to Alpine 3.20.
