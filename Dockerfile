@@ -30,7 +30,7 @@ RUN \
   echo "***** compile satip ****" && \
   if [ -z ${MINISATIP_VERSION+x} ]; then \
     MINISATIP_VERSION=$(curl -sX GET https://api.github.com/repos/catalinii/minisatip/releases/latest \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+    | jq -r '.tag_name'); \
   fi && \
   git clone \
     --branch ${MINISATIP_VERSION} \
