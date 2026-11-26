@@ -5,7 +5,7 @@ apt-utils                    2.8.4ubuntu0.1                     deb
 base-files                   13ubuntu10.5                       deb     
 base-passwd                  3.6.3build1                        deb     
 bash                         5.2.21-2ubuntu4                    deb     
-binutils-common              2.42-4ubuntu2.10                   deb     
+binutils-common              2.42-4ubuntu2.11                   deb     
 bsdutils                     1:2.39.3-9ubuntu6.6                deb     
 ca-certificates              20260816ubuntu0.24.04.2            deb     
 catatonit                    0.1.7-1                            deb     
